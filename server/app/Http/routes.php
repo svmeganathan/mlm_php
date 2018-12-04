@@ -14,3 +14,8 @@
 $app->get('/', function () use ($app) {
     return $app->welcome();
 });
+
+    $app->get('crud', 'EmailTemplatesController@index');
+    // $router->get('emailTemplates', 'EmailTemplatesController@index');
+    // $router->put('emailTemplates/{id}', 'EmailTemplatesController@update');
+    // $router->delete('emailTemplates/{id}', 'EmailTemplatesController@delete');
