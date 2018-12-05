@@ -15,4 +15,4 @@ $app->get('/', function () use ($app) {
     return $app->welcome();
 });
 
-$app->get('users', 'UsersController@index');
+$app->get('users', 'UsersController@add');
