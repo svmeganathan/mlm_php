@@ -16,3 +16,6 @@ $app->get('/', function () use ($app) {
 });
 
 $app->get('users', 'UsersController@index');
+$app->post('user', 'UsersController@add');
+$app->put('user/{id}', 'UsersController@update');
+$app->delete('user/{id}', 'UsersController@delete');
