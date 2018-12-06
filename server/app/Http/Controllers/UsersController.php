@@ -22,14 +22,7 @@ class UsersController extends Controller
      * @return void
     */
     public function index(Request $request){
-        //$users = User::all();
-
-        $users = array(
-            'Tamil',
-            'Megu',
-            'Ram',
-            'Hari'
-        );
+        $users = User::all();
         $response = array(
             'users' => $users
         );
