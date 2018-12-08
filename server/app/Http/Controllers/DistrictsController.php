@@ -57,14 +57,14 @@ class DistrictsController extends Controller
 
 /////////////////////////Add or Create Data //////////////////////////
     public function add(Request $request){
-        $districts = District::create([
+        $district = District::create([
             'districtname'=> $request->input('districtname'),
          ]);
-        if (!empty($districts)) {
+        if (!empty($district)) {
             $response = array(
                 'error'=> false,
                 'msg'  => 'Successfully',
-                'data' => $districts
+                'data' => $district
             );
         } else {
             $response = array(
@@ -78,13 +78,13 @@ class DistrictsController extends Controller
 
 /////////////////////////Update Data //////////////////////////
 	public function update(Request $request, $id){
-        $districts = District::find($id);
-        if (!empty($districts)) {
-            $districts->districtname = $request->input('districtname');
+        $district = District::find($id);
+        if (!empty($district)) {
+            $district->districtname = $request->input('districtname');
             $response = array(
                 'error'=> false,
                 'msg'  => 'Successfully',
-                'data' => $districts
+                'data' => $district
             );
 	    } else {
             $response = array(
@@ -99,16 +99,17 @@ class DistrictsController extends Controller
 
 /////////////////////////Delete Data //////////////////////////
 	public function delete($id){
-        $districts = District::find($id);
-        if (!empty($districts)) {
-            $districts->delete();
+        $district = District::find($id);
+        if (!empty($district)) {
+            $district->delete();
             $res['success'] = true;
             return response($res, 200);
         } else {
             $res['success'] = false;
             $res['message'] = 'not found';
             return response($res, 200);
-	    }
+        }
+        echo json_encode($res);
     }
 
 }

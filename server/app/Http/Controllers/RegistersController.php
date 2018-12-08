@@ -24,7 +24,7 @@ class RegistersController extends Controller
     
 
     public function add(Request $request){
-        $registers = Register::create([
+        $register = Register::create([
             'username'=> $request->input('username'),
             'password'=> $request->input('password'),
             'firstname'=> $request->input('firstname'),
@@ -39,11 +39,11 @@ class RegistersController extends Controller
             'pincode'=> $request->input('pincode'),
             'role_id'=> $request->input('role_id'),
          ]);
-        if (!empty($registers)) {
+        if (!empty($register)) {
             $response = array(
                 'error'=> false,
                 'msg'  => 'Successfully',
-                'data' => $registers
+                'data' => $register
             );
         } else {
             $response = array(

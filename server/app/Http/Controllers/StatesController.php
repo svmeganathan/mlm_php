@@ -57,14 +57,14 @@ class StatesController extends Controller
 
 /////////////////////////Add or Create Data //////////////////////////
     public function add(Request $request){
-        $states = State::create([
+        $state = State::create([
             'statename'=> $request->input('statename'),
          ]);
-        if (!empty($states)) {
+        if (!empty($state)) {
             $response = array(
                 'error'=> false,
                 'msg'  => 'Successfully',
-                'data' => $states
+                'data' => $state
             );
         } else {
             $response = array(
@@ -78,13 +78,13 @@ class StatesController extends Controller
 
 /////////////////////////Update Data //////////////////////////
 	public function update(Request $request, $id){
-        $states = State::find($id);
-        if (!empty($users)) {
-            $states->statename = $request->input('statename');
+        $state = State::find($id);
+        if (!empty($state)) {
+            $state->statename = $request->input('statename');
             $response = array(
                 'error'=> false,
                 'msg'  => 'Successfully',
-                'data' => $states
+                'data' => $state
             );
 	    } else {
             $response = array(
@@ -99,16 +99,17 @@ class StatesController extends Controller
 
 /////////////////////////Delete Data //////////////////////////
 	public function delete($id){
-        $states = State::find($id);
-        if (!empty($states)) {
-            $states->delete();
+        $state = State::find($id);
+        if (!empty($state)) {
+            $state->delete();
             $res['success'] = true;
             return response($res, 200);
         } else {
             $res['success'] = false;
             $res['message'] = 'not found';
             return response($res, 200);
-	    }
+        }
+        echo json_encode($res);
     }
 
 }

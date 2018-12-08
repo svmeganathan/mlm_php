@@ -57,14 +57,14 @@ class GendersController extends Controller
 
 /////////////////////////Add or Create Data //////////////////////////
     public function add(Request $request){
-        $genders = Gender::create([
+        $gender = Gender::create([
             'gender'=> $request->input('gender'),
          ]);
-        if (!empty($genders)) {
+        if (!empty($gender)) {
             $response = array(
                 'error'=> false,
                 'msg'  => 'Successfully',
-                'data' => $genders
+                'data' => $gender
             );
         } else {
             $response = array(
@@ -78,13 +78,13 @@ class GendersController extends Controller
 
 /////////////////////////Update Data //////////////////////////
 	public function update(Request $request, $id){
-        $genders = Gender::find($id);
-        if (!empty($genders)) {
-            $genders->gender = $request->input('gender');
+        $gender = Gender::find($id);
+        if (!empty($gender)) {
+            $gender->gender = $request->input('gender');
             $response = array(
                 'error'=> false,
                 'msg'  => 'Successfully',
-                'data' => $genders
+                'data' => $gender
             );
 	    } else {
             $response = array(
@@ -99,16 +99,17 @@ class GendersController extends Controller
 
 /////////////////////////Delete Data //////////////////////////
 	public function delete($id){
-        $genders = Gender::find($id);
-        if (!empty($genders)) {
-            $genders->delete();
+        $gender = Gender::find($id);
+        if (!empty($gender)) {
+            $gender->delete();
             $res['success'] = true;
             return response($res, 200);
         } else {
             $res['success'] = false;
             $res['message'] = 'not found';
             return response($res, 200);
-	    }
+        }
+        echo json_encode($res);
     }
 
 }

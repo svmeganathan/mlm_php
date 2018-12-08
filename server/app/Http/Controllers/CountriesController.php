@@ -57,14 +57,14 @@ class CountriesController extends Controller
 
 /////////////////////////Add or Create Data //////////////////////////
     public function add(Request $request){
-        $countries = Country::create([
+        $country = Country::create([
             'countryname'=> $request->input('countryname'),
          ]);
-        if (!empty($countries)) {
+        if (!empty($country)) {
             $response = array(
                 'error'=> false,
                 'msg'  => 'Successfully',
-                'data' => $countries
+                'data' => $country
             );
         } else {
             $response = array(
@@ -78,13 +78,13 @@ class CountriesController extends Controller
 
 /////////////////////////Update Data //////////////////////////
 	public function update(Request $request, $id){
-        $countries = Country::find($id);
-        if (!empty($districts)) {
-            $countries->countryname = $request->input('countryname');
+        $country = Country::find($id);
+        if (!empty($country)) {
+            $country->countryname = $request->input('countryname');
             $response = array(
                 'error'=> false,
                 'msg'  => 'Successfully',
-                'data' => $countries
+                'data' => $country
             );
 	    } else {
             $response = array(
@@ -99,9 +99,9 @@ class CountriesController extends Controller
 
 /////////////////////////Delete Data //////////////////////////
 	public function delete($id){
-        $countries = Country::find($id);
-        if (!empty($countries)) {
-            $countries->delete();
+        $country = Country::find($id);
+        if (!empty($country)) {
+            $country->delete();
             $res['success'] = true;
             return response($res, 200);
         } else {
@@ -109,6 +109,7 @@ class CountriesController extends Controller
             $res['message'] = 'not found';
             return response($res, 200);
 	    }
+        echo json_encode($res);
     }
-
+   
 }

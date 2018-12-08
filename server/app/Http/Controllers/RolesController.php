@@ -57,34 +57,34 @@ class RolesController extends Controller
 
 /////////////////////////Add or Create Data //////////////////////////
     public function add(Request $request){
-        $roles = Role::create([
+        $role = Role::create([
             'rolename'=> $request->input('rolename'),
          ]);
-        if (!empty($roles)) {
+        if (!empty($role)) {
             $response = array(
                 'error'=> false,
                 'msg'  => 'Successfully',
-                'data' => $roles
+                'data' => $role
             );
         } else {
             $response = array(
                 'error'=> true,
                 'msg'  => 'Invalid'
             );
-        }
+        }        
         echo json_encode($response);
     }
 
 
 /////////////////////////Update Data //////////////////////////
 	public function update(Request $request, $id){
-        $roles = Role::find($id);
-        if (!empty($roles)) {
-            $roles->rolename = $request->input('rolename');
+        $role = Role::find($id);
+        if (!empty($role)) {
+            $role->rolename = $request->input('rolename');
             $response = array(
                 'error'=> false,
                 'msg'  => 'Successfully',
-                'data' => $roles
+                'data' => $role
             );
 	    } else {
             $response = array(
@@ -99,16 +99,17 @@ class RolesController extends Controller
 
 /////////////////////////Delete Data //////////////////////////
 	public function delete($id){
-        $roles = Role::find($id);
-        if (!empty($roles)) {
-            $roles->delete();
+        $role = Role::find($id);
+        if (!empty($role)) {
+            $role->delete();
             $res['success'] = true;
             return response($res, 200);
         } else {
             $res['success'] = false;
             $res['message'] = 'not found';
             return response($res, 200);
-	    }
+        }
+        echo json_encode($res);
     }
 
 }

@@ -54,15 +54,15 @@ class UsersController extends Controller
     }
 
     public function add(Request $request){
-        $users = User::create([
+        $user = User::create([
             'username'=> $request->input('username'),
             'password'=> $request->input('password'),
          ]);
-        if (!empty($users)) {
+        if (!empty($user)) {
             $response = array(
                 'error'=> false,
                 'msg'  => 'Successfully',
-                'data' => $users
+                'data' => $user
             );
         } else {
             $response = array(
@@ -74,13 +74,13 @@ class UsersController extends Controller
     }
 
     public function update(Request $request, $id){
-        $users = User::find($id);
-        if (!empty($users)) {
-            $users->username = $request->input('username');
+        $user = User::find($id);
+        if (!empty($user)) {
+            $user->username = $request->input('username');
             $response = array(
                 'error'=> false,
                 'msg'  => 'Successfully',
-                'data' => $users
+                'data' => $user
             );
 	    } else {
             $response = array(
@@ -93,15 +93,16 @@ class UsersController extends Controller
     }
 
     public function delete($id){
-        $users = User::find($id);
-        if (!empty($users)) {
-            $users->delete();
+        $user = User::find($id);
+        if (!empty($user)) {
+            $user->delete();
             $res['success'] = true;
             return response($res, 200);
         } else {
             $res['success'] = false;
             $res['message'] = 'not found';
             return response($res, 200);
-	    }
+        }
+        echo json_encode($res);
     }
 }
