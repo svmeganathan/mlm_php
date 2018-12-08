@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class District extends Model
+class Register extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,7 +12,8 @@ class District extends Model
      * @var array
      */
     protected $fillable = [
-        'districtname'
+        'username','password','firstname','middlename','lastname','gender_id','email','address','district_id','state_id','country_id','pincode','role_id'
     ];
+ 
 
 }

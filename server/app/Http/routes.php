@@ -15,32 +15,44 @@ $app->get('/', function () use ($app) {
     return $app->welcome();
 });
 
-///////users/////
+///////////////users/////
 $app->get('users', 'UsersController@index');
 $app->post('user', 'UsersController@add');
 $app->put('user/{id}', 'UsersController@update');
 $app->delete('user/{id}', 'UsersController@delete');
 
-///////district/////
+////////////////gender/////
+$app->get('gender', 'GendersController@index');
+$app->post('gender', 'GendersController@add');
+$app->put('gender/{id}', 'GendersController@update');
+$app->delete('gender/{id}', 'GendersController@delete');
+
+
+//////////////district/////
 $app->get('district', 'DistrictsController@index');
 $app->post('district', 'DistrictsController@add');
 $app->put('district/{id}', 'DistrictsController@update');
 $app->delete('district/{id}', 'DistrictsController@delete');
 
-///////state/////
+
+/////////////state/////
 $app->get('state', 'StatesController@index');
 $app->post('state', 'StatesController@add');
 $app->put('state/{id}', 'StatesController@update');
 $app->delete('state/{id}', 'StatesController@delete');
 
-///////country/////
+//////////////country/////
 $app->get('country', 'CountriesController@index');
 $app->post('country', 'CountriesController@add');
 $app->put('country/{id}', 'CountriesController@update');
 $app->delete('country/{id}', 'CountriesController@delete');
 
-///////role/////
+////////////////role/////
 $app->get('role', 'RolesController@index');
 $app->post('role', 'RolesController@add');
 $app->put('role/{id}', 'RolesController@update');
 $app->delete('role/{id}', 'RolesController@delete');
+
+
+////////register///////////
+$app->post('register', 'RegistersController@add');
