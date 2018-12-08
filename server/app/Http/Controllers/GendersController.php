@@ -37,7 +37,7 @@ class GendersController extends Controller
                 $response = array(
                     'msg'   => 'Successfully',
                     'count' => $count,
-                    'gender' => $genders,
+                    'genders' => $genders,
                 );
             } else {
                 $response = array(
@@ -47,7 +47,7 @@ class GendersController extends Controller
         } else {
             $genders = User::all();
             $response = array(
-                'gender' => $genders
+                'genders' => $genders
             );
             // echo json_encode($response);
         }

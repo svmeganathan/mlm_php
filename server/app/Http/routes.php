@@ -22,33 +22,33 @@ $app->put('user/{id}', 'UsersController@update');
 $app->delete('user/{id}', 'UsersController@delete');
 
 ////////////////gender/////
-$app->get('gender', 'GendersController@index');
+$app->get('genders', 'GendersController@index');
 $app->post('gender', 'GendersController@add');
 $app->put('gender/{id}', 'GendersController@update');
 $app->delete('gender/{id}', 'GendersController@delete');
 
 
 //////////////district/////
-$app->get('district', 'DistrictsController@index');
+$app->get('districts', 'DistrictsController@index');
 $app->post('district', 'DistrictsController@add');
 $app->put('district/{id}', 'DistrictsController@update');
 $app->delete('district/{id}', 'DistrictsController@delete');
 
 
 /////////////state/////
-$app->get('state', 'StatesController@index');
+$app->get('states', 'StatesController@index');
 $app->post('state', 'StatesController@add');
 $app->put('state/{id}', 'StatesController@update');
 $app->delete('state/{id}', 'StatesController@delete');
 
 //////////////country/////
-$app->get('country', 'CountriesController@index');
+$app->get('countries', 'CountriesController@index');
 $app->post('country', 'CountriesController@add');
 $app->put('country/{id}', 'CountriesController@update');
 $app->delete('country/{id}', 'CountriesController@delete');
 
 ////////////////role/////
-$app->get('role', 'RolesController@index');
+$app->get('roles', 'RolesController@index');
 $app->post('role', 'RolesController@add');
 $app->put('role/{id}', 'RolesController@update');
 $app->delete('role/{id}', 'RolesController@delete');

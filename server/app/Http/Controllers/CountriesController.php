@@ -22,12 +22,12 @@ class CountriesController extends Controller
      * @return void
     */
   /////////////////////////Searching or Sorting//////////////////////////
-	public function index(Request $request){
+	public function index(Request $request){    
         if(!empty($request->input('sortField'))){
             $query = Country::orderBy($request->input('sortField'),$request->input('sortDirection'));
             if(!empty($request->input('search'))){
                 $query->where( 'countryname', 'like', '%'.$request->input('search').'%' );
-            }
+           }
             $count = $query->count();
             if(!empty($request->input('startOffset'))){
                 $query->offset($request->input('startOffset'),$request->input('endOffset'))->limit($request->input('limit'));
@@ -37,7 +37,7 @@ class CountriesController extends Controller
                 $response = array(
                     'msg'   => 'Successfully',
                     'count' => $count,
-                    'country' => $countries,
+                    'countries' => $countries,
                 );
             } else {
                 $response = array(
@@ -47,7 +47,7 @@ class CountriesController extends Controller
         } else {
             $countries = Country::all();
             $response = array(
-                'country' => $countries
+                'countries' => $countries
             );
             // echo json_encode($response);
         }

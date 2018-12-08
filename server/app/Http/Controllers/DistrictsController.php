@@ -37,7 +37,7 @@ class DistrictsController extends Controller
                 $response = array(
                     'msg'   => 'Successfully',
                     'count' => $count,
-                    'district' => $districts,
+                    'districts' => $districts,
                 );
             } else {
                 $response = array(
@@ -47,7 +47,7 @@ class DistrictsController extends Controller
         } else {
             $districts = User::all();
             $response = array(
-                'district' => $districts
+                'districts' => $districts
             );
             // echo json_encode($response);
         }

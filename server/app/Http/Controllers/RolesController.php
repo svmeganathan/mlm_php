@@ -37,7 +37,7 @@ class RolesController extends Controller
                 $response = array(
                     'msg'   => 'Successfully',
                     'count' => $count,
-                    'role' => $roles,
+                    'roles' => $roles,
                 );
             } else {
                 $response = array(
@@ -47,7 +47,7 @@ class RolesController extends Controller
         } else {
             $roles = Role::all();
             $response = array(
-                'country' => $roles
+                'roles' => $roles
             );
             // echo json_encode($response);
         }

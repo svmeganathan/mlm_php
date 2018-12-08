@@ -37,7 +37,7 @@ class StatesController extends Controller
                 $response = array(
                     'msg'   => 'Successfully',
                     'count' => $count,
-                    'state' => $states,
+                    'states' => $states,
                 );
             } else {
                 $response = array(
@@ -47,7 +47,7 @@ class StatesController extends Controller
         } else {
             $states = State::all();
             $response = array(
-                'state' => $states
+                'states' => $states
             );
             // echo json_encode($response);
         }

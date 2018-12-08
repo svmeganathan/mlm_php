@@ -22,8 +22,8 @@ class UsersController extends Controller
      * @return void
     */
     public function index(Request $request){
-        if(!empty($request->input('id'))){
-            $query = User::orderBy($request->input('id'),$request->input('sortDirection'));
+        if(!empty($request->input('sortField'))){
+            $query = User::orderBy($request->input('sortField'),$request->input('sortDirection'));
             if(!empty($request->input('search'))){
                 $query->where( 'username', 'like', '%'.$request->input('search').'%' );
             }
