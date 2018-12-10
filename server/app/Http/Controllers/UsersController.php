@@ -54,6 +54,10 @@ class UsersController extends Controller
     }
 
     public function add(Request $request){
+        $this->validate($request,[
+            'username'=>'required|min:8|unique:users,username',
+            'password'=>'required|max:10'
+        ]);
         $user = User::create([
             'username'=> $request->input('username'),
             'password'=> $request->input('password'),
@@ -71,6 +75,7 @@ class UsersController extends Controller
             );
         }
         echo json_encode($response);
+        echo json_encode($this); 
     }
 
     public function update(Request $request, $id){

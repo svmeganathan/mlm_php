@@ -57,7 +57,11 @@ class CountriesController extends Controller
 
 /////////////////////////Add or Create Data //////////////////////////
     public function add(Request $request){
-        $country = Country::create([
+
+        $this->validate($request,[
+            'countryname'=>'required|min:3|unique:countries,countryname'
+        ]);
+                $country = Country::create([
             'countryname'=> $request->input('countryname'),
          ]);
         if (!empty($country)) {
@@ -73,6 +77,7 @@ class CountriesController extends Controller
             );
         }
         echo json_encode($response);
+        echo json_encode($this);      
     }
 
 
