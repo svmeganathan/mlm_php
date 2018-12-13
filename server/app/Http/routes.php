@@ -56,3 +56,4 @@ $app->delete('role/{id}', 'RolesController@delete');
 
 ////////register///////////
 $app->post('register', 'RegistersController@add');
+$app->post('send', 'EmailController@send');

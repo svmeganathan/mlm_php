@@ -12,7 +12,7 @@ class Register extends Model
      * @var array
      */
     protected $fillable = [
-        'username','password','firstname','middlename','lastname','gender_id','email','address','district_id','state_id','country_id','pincode','role_id'
+        'firstname','middlename','lastname','gender_id','email','phoneno','address','pincode','district_id','state_id','country_id','role_id','username','password','retypsd','otp','status',
     ];
  
 
